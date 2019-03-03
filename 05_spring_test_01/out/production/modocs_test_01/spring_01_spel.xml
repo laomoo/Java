@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:db.properties"/>
+    <bean id="bean_00" class="com.personal.bean.Student">
+        <constructor-arg name="username" value="${username}"></constructor-arg>
+        <constructor-arg name="password" value="${password}"></constructor-arg>
+    </bean>
+
+    <!-- Sping SpEL-->
+    <bean id="bean_01" class="com.personal.bean.Student">
+        <constructor-arg name="username" value="#{T(Math).PI}"></constructor-arg>
+        <constructor-arg name="password" value="#{bean_00.getUsername()}"></constructor-arg>
+    </bean>
+
+    <bean id="poem" class="com.personal.spel.Poem"/>
+    <bean id="poet" class="com.personal.spel.Poet">
+        <property name="poem" value="#{poem}"/>
+    </bean>
+    <bean id="circle" class="com.personal.spel.Circle">
+        <property name="radius" value="2.1"/>
+    </bean>
+    <bean id="hero" class="com.personal.spel.Hero">
+        <property name="count" value="#{5}"/>
+        <property name="frequency" value="#{89.7}"/>
+        <property name="capacity" value="#{1e4}"/>
+        <!-- <property name="name" value="#{'moonlit'}" /> -->
+        <property name="name" value='#{"moonlit"}'/>
+        <property name="enabled" value="#{true}"/>
+        <!-- <property name="poem" value="#{poet.poem}" /> -->
+        <property name="poem" value="#{poet.getPoem()}"/>
+        <property name="multiplier" value="#{T(java.lang.Math).PI}"/>
+        <property name="randomNumber" value="#{T(java.lang.Math).random()}"/>
+        <property name="total" value="#{circle.radius + 100.0}"/>
+        <property name="hasCapacity" value="#{circle.radius lt 3.3}"/>
+    </bean>
+
+</beans>

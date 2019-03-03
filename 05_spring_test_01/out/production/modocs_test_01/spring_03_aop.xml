@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- 配置对象 -->
+    <bean id="bean_00" class="com.personal.aop.Wife">
+        <property name="username" value="张三"></property>
+    </bean>
+    <bean id="bean_01" class="com.personal.aop.WifeSpeak"/>
+
+    <!-- 配置aop操作 -->
+    <aop:config>
+        <!-- 配置连接点 -->
+        <aop:pointcut id="pointcut_00" expression="execution(* com.personal.aop.Wife.getTrueUsername(..))"/>
+
+        <!-- 配置增强类 -->
+        <aop:aspect ref="bean_01">
+            <aop:around method="arround" pointcut-ref="pointcut_00"/>
+            <aop:before method="speakBefore" pointcut-ref="pointcut_00"/>
+            <aop:after method="speakAfter" pointcut-ref="pointcut_00"/>
+        </aop:aspect>
+    </aop:config>
+</beans>

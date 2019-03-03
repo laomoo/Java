@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="bean_00" class="com.personal.bean.People" scope="singleton">
+        <property name="username" value="Hello"></property>
+        <property name="password" value="null"></property>
+    </bean>
+    <!--<bean id="bean_00_0" class="com.personal.bean.People" abstract="true">-->
+    <!--<constructor-arg index="0" value="LaoMo"></constructor-arg>-->
+    <!--<constructor-arg index="1" value="1234#qwer"></constructor-arg>-->
+    <!--</bean>-->
+    <bean id="bean_00_1" class="com.personal.bean.Student" abstract="true">
+        <property name="username" value="bean_02,bean_03,bean_04"></property>
+        <property name="password" value="测试"></property>
+    </bean>
+
+    <!--<bean id="bean_00_2" parent="bean_00_1">-->
+    <!--<property name="username" value="李四"/>-->
+    <!--<property name="password" value="123456"/>-->
+    <!--</bean>-->
+
+    <bean id="bean_01" class="com.personal.bean.Student" scope="prototype">
+        <constructor-arg index="0" value="LaoMo"></constructor-arg>
+        <constructor-arg index="1" value="1234#qwer"></constructor-arg>
+    </bean>
+
+    <bean class="com.personal.bean.Student">
+        <constructor-arg index="0" value="LaoMo"></constructor-arg>
+        <constructor-arg index="1" value="1234#qwer"></constructor-arg>
+    </bean>
+
+    <bean name="bean_02,bean_03,bean_04" id="bean_05" class="com.personal.bean.People">
+        <property name="username" value="bean_02,bean_03,bean_04"></property>
+        <property name="password" value="测试"></property>
+    </bean>
+
+    <bean id="bean_01_0" class="com.personal.bean.Student" scope="prototype">
+        <constructor-arg index="0" value="张三"></constructor-arg>
+        <constructor-arg index="1" value="1234#qwer"></constructor-arg>
+    </bean>
+
+    <!-- Bean init-method 初始化第一种方式 -->
+    <bean name="bean_06" class="com.personal.bean.School" depends-on="bean_01_0" init-method="initSchool" destroy-method="destroySchool">
+        <!-- 默认是查找当前配置文件的Bean -->
+        <!--<constructor-arg name="student" ref="bean_01_0"></constructor-arg>-->
+        <constructor-arg name="student">
+            <ref bean="bean_01_0"></ref>
+        </constructor-arg>
+    </bean>
+
+    <!-- Bean init-method 初始化第二种方式 -->
+    <bean id="bean_07" class="com.personal.bean.Home"></bean>
+
+    <bean id="bean_08" class="com.personal.bean.People" scope="singleton">
+        <property name="username" value="Hello"></property>
+        <property name="password">
+            <!--<null></null>-->
+            <null/>
+        </property>
+    </bean>
+
+    <!-- Bean 自动装配模式 - byName -->
+    <bean id="bean_09" class="com.personal.bean.People" autowire="byName">
+        <property name="username" value="李四"></property>
+        <property name="password" value="123456"></property>
+    </bean>
+
+    <!-- Bean 自动装配模式 - constructor -->
+    <bean id="bean_10" class="com.personal.bean.People" autowire="constructor"></bean>
+    <bean id="bean_11" class="com.personal.bean.Student" autowire="constructor">
+        <constructor-arg name="username" value="王五"></constructor-arg>
+        <constructor-arg name="password" value="1234#qwer"></constructor-arg>
+    </bean>
+
+    <!-- Bean 自动装配模式 - byType -->
+    <bean id="bean_12" class="com.personal.bean.Family" autowire="byType"></bean>
+    <!--<bean id="bean_13" class="com.personal.bean.Home"></bean>-->
+
+    <!-- Bean 集合注入 - List/Set -->
+    <bean id="bean_13" class="com.personal.bean.Student">
+        <constructor-arg name="username" value="张三"></constructor-arg>
+        <constructor-arg name="password" value="1234#qwer"></constructor-arg>
+    </bean>
+    <bean id="bean_14" class="com.personal.bean.Student">
+        <constructor-arg name="username" value="李四"></constructor-arg>
+        <constructor-arg name="password" value="1234#qwer"></constructor-arg>
+    </bean>
+
+    <bean id="bean_15" class="com.personal.bean.Class">
+        <property name="students">
+            <list>
+                <ref bean="bean_13"></ref>
+                <ref bean="bean_14"></ref>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Bean 集合注入 - Map -->
+    <bean id="bean_16" class="com.personal.bean.Teacher">
+        <property name="post">
+            <map>
+                <entry key="老五">
+                    <value>初三一班</value>
+                </entry>
+                <entry key="陈思" value="初四二班"></entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="bean_17" class="com.personal.bean.Woman">
+        <property name="properties">
+            <props>
+                <prop key="耳朵">长的</prop>
+                <prop key="鼻子">大的</prop>
+                <prop key="眼睛">小的</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- Spring AOP -->
+    <bean id="bean_18" class="com.personal.aop.Student">
+        <property name="username">
+            <value><![CDATA[<HelloWorld^>]]></value>
+        </property>
+    </bean>
+    <bean id="bean_19" class="com.personal.interceptor.StudentSpeckInterceptor"></bean>
+
+    <!-- 使用ProxyFactoryBean实现代理所有方法 -->
+    <bean id="bean_20" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="bean_18"></property>
+        <property name="interceptorNames">
+            <list>
+                <value>bean_19</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="bean_21" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+        <property name="advice" ref="bean_19"></property>
+        <property name="patterns" value=".*Hello.*"></property>
+    </bean>
+
+    <!-- 使用ProxyFactoryBean实现代理指定方法（通过正则表达式判断） -->
+    <bean id="bean_22" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyTargetClass" value="true"/>
+        <property name="target" ref="bean_18"></property>
+        <property name="interceptorNames">
+            <list>
+                <value>bean_21</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Spring 自动代理 -->
+    <!-- 能够扫描容器中的Advisor， -->
+    <!-- 将Advisor自动织入到匹配的目标Bean，即为匹配的目标Bean自动创建代理 -->
+    <!--<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator">-->
+    <!--<property name="optimize" value="true"/>-->
+    <!--</bean>-->
+
+    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <property name="beanNames" value="bean_18"></property>
+        <property name="interceptorNames" value="bean_19"></property>
+    </bean>
+
+</beans>
