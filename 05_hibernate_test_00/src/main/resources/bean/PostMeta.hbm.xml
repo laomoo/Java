@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+
+<!-- 配置类和表对应的映射 -->
+<hibernate-mapping package="com.bean">
+    <!--
+        class   标签
+        name    Java类名
+        table   数据库表名称
+        column  表对应字段名称
+    -->
+    <class name="PostMeta" table="wp_postmeta">
+        <!--
+            设置数据库对应自动增长策略
+            native 设置为主键自动增长
+         -->
+        <id name="metaId" column="meta_id">
+            <generator class="native"></generator>
+        </id>
+        <property name="postId" column="post_id"/>
+        <property name="metaKey" column="meta_key"/>
+        <property name="metaValue" column="meta_value"/>
+    </class>
+
+</hibernate-mapping>
