@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9d13d5e4-1b99-41be-9b71-d184ea5a48fa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/05_hibernate_test_00.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bean/PostMeta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bean/PostMeta.hbm.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/conf/hibernate.cfg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../05_hibernate_test_01/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../05_hibernate_test_01/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../05_hibernate_test_01/src/main/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../05_hibernate_test_01/src/main/java/hibernate.cfg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../05_hibernate_test_01/src/main/resources/conf/hibernate.cfg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../05_spring_test_03/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../05_spring_test_03/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../05_spring_test_03/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../05_spring_test_03/05_spring_test_03.iml" beforeDir="false" />
-    </list>
+    <list default="true" id="9d13d5e4-1b99-41be-9b71-d184ea5a48fa" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,8 +61,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/bean/PostMeta.hbm.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="14" column="45" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
+            <state relative-caret-position="209">
+              <caret line="20" column="12" lean-forward="true" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -175,7 +157,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="952" />
     <option name="width" value="977" />
     <option name="height" value="1050" />
@@ -255,7 +237,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551619992813" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551620285167" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -309,12 +291,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1551612577840</updated>
-      <workItem from="1551612583359" duration="4887000" />
+      <workItem from="1551612583359" duration="5166000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4887000" />
+    <option name="totallyTimeSpent" value="5166000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
@@ -326,7 +308,7 @@
       <window_info id="Capture Tool" />
       <window_info id="UI Designer" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.51448274" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28045514" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
@@ -337,7 +319,7 @@
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32914925" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32914925" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -438,8 +420,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/bean/PostMeta.hbm.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="14" column="45" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
+        <state relative-caret-position="209">
+          <caret line="20" column="12" lean-forward="true" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
         </state>
       </provider>
     </entry>
