@@ -13,9 +13,7 @@ public class Main {
 
     static {
         try {
-            ourSessionFactory = new Configuration().
-                    configure("conf/hibernate.cfg.xml").
-                    buildSessionFactory();
+            ourSessionFactory = new Configuration().configure("conf/hibernate.cfg.xml").buildSessionFactory();
         } catch (Throwable ex) {
             throw new ExceptionInInitializerError(ex);
         }
@@ -36,7 +34,7 @@ public class Main {
                 final Query query = session.createQuery("from " + entityName);
                 System.out.println("executing: " + query.getQueryString());
                 for (Object o : query.list()) {
-                    System.out.println("  " + ((PostMeta)o).getMetaKey());
+                    System.out.println("  " + ((PostMeta) o).getMetaKey());
                 }
             }
         } finally {
